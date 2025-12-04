@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logika Bertahan Hidup (Hantu) PWA</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#212121">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="haunted-container">
+        <header>
+            <h1>👻 Logika Bertahan Hidup (Hantu) 🏚️</h1>
+        </header>
+
+        <main class="game-area">
+            
+            <aside class="side-menu" id="main-menu-container">
+                <h2>Main Menu</h2>
+                <button id="level-1-btn" onclick="startGame(1)">Level 1: Dasar Logika</button>
+                <button id="level-2-btn" onclick="startGame(2)" disabled>Level 2: Kombinasi</button>
+                <button id="level-3-btn" onclick="startGame(3)" disabled>Level 3: Tautologi</button>
+                <button id="restart-btn" onclick="location.reload()">Restart Game</button>
+            </aside>
+
+            <section class="game-content" id="game-content-area">
+                <h2>Selamat Datang!</h2>
+                <p>Pilih level di menu samping untuk memulai. Setiap level memiliki 3 tugas. Jawab dengan benar untuk menaklukkan Logika Hantu!</p>
+                <div class="logika-highlight">
+                    <p>Fokus: **Logika Proposisional (Konjungsi, Disjungsi, Implikasi, Biimplikasi, Negasi)**</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© Game Logika-Hantu dibuat oleh TabrizziAqlia-PWA</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Gunakan path root atau ganti dengan nama repositori Anda jika deployment gagal
+                navigator.serviceWorker.register('./service-worker.js') 
+                    .then(reg => console.log('SW Registered:', reg.scope))
+                    .catch(err => console.error('SW Failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
